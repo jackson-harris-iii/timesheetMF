@@ -20,98 +20,91 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <!-- MDB core JavaScript -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.0/js/mdb.min.js"></script>
+    <!-- moment.js  -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js" integrity="sha256-ABVkpwb9K9PxubvRrHMkk6wmWcIHUE9eBxNZLXYQ84k="
+        crossorigin="anonymous"></script>
+    <!-- custom js code -->
     <script src="assets/javascript/app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
-
 </head>
 
-<body>
+<body class="stylish-color">
     <div class="card">
         <div class="card-body">
             <h1 class="card-title text-center">Employee Data Management</h1>
             <h6 class="card-subtitle mb-2 text-muted text-center">A Comprehensive Directory of Employee Billable Hours</h6>
         </div>
     </div>
-    <!--Table-->
-    <table class="table table-hover mt-5">
+        <div class="row">
+            <div class="col-4 padding-right-0">
+                <div class="card-body">
+                    <!-- Material form register -->
+                    <!-- Card -->
+                    <div class="card mx-xl-5">
+                        <!-- Card body -->
+                        <div class="card-body z-depth-3 unique-color">
+                
+                            <!-- Default form subscription -->
+                            <form>
+                                <p class="h4 py-2 white-text">New Employee</p>
+                
+                                <!-- Default input name -->
+                                <label for="defaultFormCardNameEx" class="font-weight-light">Name</label>
+                                <input type="text" id="EmployeeName" class="form-control">
+                
+                                <br>
+                                <!-- Default input name -->
+                                <label for="defaultFormCardNameEx" class="font-weight-light">Role</label>
+                                <input type="text" id="role" class="form-control">
+                
+                                <br>
+                                <!-- Default input name -->
+                                <label for="defaultFormCardNameEx" class="font-weight-light">Start Date (mm/dd/yyyy)</label>
+                                <input type="text" id="startDate" class="form-control">
+                                <!-- <div class="md-form">
+                                    <input  type="text" id="date-picker-example" class="input-group date" data-provide="datepicker">
+                                    <label for="date-picker-example">Try me...</label>
+                                </div> -->
+                
+                                <br>
+                                <!-- Default input name -->
+                                <label for="defaultFormCardNameEx" class="font-weight-light">Monthly Rate</label>
+                                <input type="text" id="monthlyRate" class="form-control">
+                
+                                <br>
+                            </form>
+                            <div class="text-center">
+                                <button type="button" class="btn btn-elegant waves-effect" id="submitButton">Submit</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>    
+            </div>        
+            <div class="col-8 mt-4">
+                <table class="table table-hover z-depth-3 d-inline-block unique-color">
 
-        <!--Table head-->
-        <thead>
-            <tr>
-                <th>Employee</th>
-                <th>Role</th>
-                <th>Start Date</th>
-                <th>Monthly Rate($)</th>
-                <th>Months Worked</th>
-                <th>Total Billed($)</th>
-            </tr>
-        </thead>
-        <!--Table head-->
+                    <!--Table head-->
+                    <thead>
+                        <tr>
+                            <th class="white-text">Employee</th>
+                            <th class="white-text">Role</th>
+                            <th class="white-text">Start Date</th>
+                            <th class="white-text">Monthly Rate($)</th>
+                            <th class="white-text">Months Worked</th>
+                            <th class="white-text">Total Billed($)</th>
+                        </tr>
+                    </thead>
+                    <!--Table head-->
 
-        <!--Table body-->
-        <tbody id="employeeInfo">
-            <!-- <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td colspan="2">Larry the Bird</td>
-                <td>@twitter</td>
-            </tr> -->
-        </tbody>
-        <!--Table body-->
+                    <!--Table body-->
+                    <tbody id="employeeInfo">            
+                    </tbody>
+                    <!--Table body-->
 
-    </table>
-    <!--Table-->
-
-    <!-- Card body -->
-    <div class="card-body w-50">
-
-        <!-- Material form register -->
-        <!-- Card -->
-        <div class="card mx-xl-5">
-
-            <!-- Card body -->
-            <div class="card-body">
-
-                <!-- Default form subscription -->
-                <form>
-                    <p class="h4 text-center py-4">New Employee</p>
-
-                    <!-- Default input name -->
-                    <label for="defaultFormCardNameEx" class="grey-text font-weight-light">Name</label>
-                    <input type="text" id="EmployeeName" class="form-control">
-
-                    <br>
-                    <!-- Default input name -->
-                    <label for="defaultFormCardNameEx" class="grey-text font-weight-light">Role</label>
-                    <input type="text" id="role" class="form-control">
-                    
-                    <br>
-                    <!-- Default input name -->
-                    <label for="defaultFormCardNameEx" class="grey-text font-weight-light">Start Date</label>
-                    <input type="text" id="startDate" class="form-control">
-                    
-                    <br>
-                    <!-- Default input name -->
-                    <label for="defaultFormCardNameEx" class="grey-text font-weight-light">Monthly Rate</label>
-                    <input type="text" id="monthlyRate" class="form-control">
-                    
-                    <br>
-                </form> 
-                <div class="text-center">
-                    <button type="button" class="btn btn-outline-danger waves-effect" id="submitButton">Submit</button>
-                </div>
-                    
+                </table>
+                <!--Table-->
+            </div>        
+    </div>    
 
 </body>
 
