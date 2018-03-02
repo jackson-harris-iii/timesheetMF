@@ -26,24 +26,24 @@ function showThings() {
         EmployeeStartDate: startDate,
         EmployeeRate: monthlyRate
         
-    });
-
-    console.log(name)    
+    });   
 }
 
-// database.ref().on("value", function(snapshot) {
-//     if (snapshot.child("").exists() && snapshot.child("highPrice").exists()) {
-
-//         // Set the variables for highBidder/highPrice equal to the stored values in firebase.
-//         highPrice = snapshot.child('highBidder')
-//         highBidder = snapshot.child('highPrice')
-
-
-//         // Change the HTML to reflect the stored values
-//         $('#highest-bidder').text(highBidder)
-//         $('#highest-price').text(highPrice)
-
-// })
+database.ref('/employees').on("child_added", function(data) {
+   var employee = data.val()
+    console.log(employee.EmployeeName)
+       var employeeData = $('<tr>')
+    var name = $('<td>').text(employee.EmployeeName) 
+    var role = $('<td>').text(employee.EmployeeRole) 
+    var date = $('<td>').text(employee.EmployeeStartDate) 
+    var rate = $('<td>').text(employee.EmployeeRate) 
+    employeeData.append(name)
+    employeeData.append(role)
+    employeeData.append(date)
+    employeeData.append(rate)
+    $('#employeeInfo').append(employeeData)
+       
+})
 
 $('#submitButton').click(showThings)
 })
