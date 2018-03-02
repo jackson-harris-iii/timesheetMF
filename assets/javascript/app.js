@@ -1,25 +1,50 @@
 $(document).ready(function () {
 
-    // Initialize Firebase
-    var config = {
-        apiKey: "AIzaSyDcy3WxCDC1Biy5PTv1ILvMSSlbJM1iVkw",
-        authDomain: "timesheetmf.firebaseapp.com",
-        databaseURL: "https://timesheetmf.firebaseio.com",
-        projectId: "timesheetmf",
-        storageBucket: "",
-        messagingSenderId: "274605900626"
-    };
-    firebase.initializeApp(config);
+// Initialize Firebase
+var config = {
+    apiKey: "AIzaSyDfkQhjkTP4ZxnEYEORgDtswEFzXDFmfRM",
+    authDomain: "timesheetmf-7e794.firebaseapp.com",
+    databaseURL: "https://timesheetmf-7e794.firebaseio.com",
+    projectId: "timesheetmf-7e794",
+    storageBucket: "",
+    messagingSenderId: "60738281119"
+};
+firebase.initializeApp(config);
 
-    console.log('ready')
+var database = firebase.database();
 
-    // Data Picker Initialization
-    $(function () {
-        $('#datetimepicker1').datetimepicker();
+
+function showThings() {
+    var name = $('#EmployeeName').val().trim()
+    var role = $('#role').val().trim()
+    var startDate = $('#startDate').val().trim()
+    var monthlyRate = $('#monthlyRate').val().trim()    
+    
+    database.ref('/employees').push({
+        EmployeeName: name,
+        EmployeeRole: role,
+        EmployeeStartDate: startDate,
+        EmployeeRate: monthlyRate
+        
     });
 
-    // Data Picker Initialization
-    $('.datepicker').pickadate();
+    console.log(name)    
+}
 
+// database.ref().on("value", function(snapshot) {
+//     if (snapshot.child("").exists() && snapshot.child("highPrice").exists()) {
+
+//         // Set the variables for highBidder/highPrice equal to the stored values in firebase.
+//         highPrice = snapshot.child('highBidder')
+//         highBidder = snapshot.child('highPrice')
+
+
+//         // Change the HTML to reflect the stored values
+//         $('#highest-bidder').text(highBidder)
+//         $('#highest-price').text(highPrice)
+
+// })
+
+$('#submitButton').click(showThings)
 })
 
